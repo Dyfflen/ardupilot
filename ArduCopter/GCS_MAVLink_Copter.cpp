@@ -1467,6 +1467,9 @@ uint8_t GCS_MAVLINK_Copter::send_available_mode(uint8_t index) const
 #if MODE_GUIDED_NOGPS_ENABLED
         &copter.mode_guided_nogps,
 #endif
+#if MODE_AIR_TO_WATER_ENABLED
+        &copter.mode_air_to_water,
+#endif
 #if MODE_SMARTRTL_ENABLED
         &copter.mode_smartrtl,
 #endif

@@ -117,6 +117,11 @@ Mode *Copter::mode_from_mode_num(const Mode::Number mode)
             return &mode_guided_nogps;
 #endif
 
+#if MODE_AIR_TO_WATER_ENABLED
+        case Mode::Number::AIR_TO_WATER:
+            return &mode_air_to_water;
+#endif
+
 #if MODE_SMARTRTL_ENABLED
         case Mode::Number::SMART_RTL:
             return &mode_smartrtl;
@@ -208,7 +213,8 @@ bool Copter::gcs_mode_enabled(const Mode::Number mode_num)
         (uint8_t)Mode::Number::SYSTEMID,
         (uint8_t)Mode::Number::AUTOROTATE,
         (uint8_t)Mode::Number::AUTO_RTL,
-        (uint8_t)Mode::Number::TURTLE
+        (uint8_t)Mode::Number::TURTLE,
+        (uint8_t)Mode::Number::AIR_TO_WATER
     };
 
     if (!block_GCS_mode_change((uint8_t)mode_num, mode_list, ARRAY_SIZE(mode_list))) {

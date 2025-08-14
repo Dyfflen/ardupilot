@@ -185,6 +185,13 @@
 #endif
 
 //////////////////////////////////////////////////////////////////////////////
+// AirToWater mode
+#ifndef MODE_AIR_TO_WATER_ENABLED
+# define MODE_AIR_TO_WATER_ENABLED 1
+#endif
+
+
+//////////////////////////////////////////////////////////////////////////////
 // Loiter mode - allows vehicle to hold global position
 #ifndef MODE_LOITER_ENABLED
 # define MODE_LOITER_ENABLED 1
@@ -580,6 +587,9 @@
   #error ModeGuided-NoGPS requires ModeGuided which is disabled
 #endif
 
+#if MODE_AIR_TO_WATER_ENABLED && !MODE_GUIDED_ENABLED
+  #error ModeGuided-NoGPS requires ModeGuided which is disabled
+#endif
 //////////////////////////////////////////////////////////////////////////////
 // Developer Items
 //

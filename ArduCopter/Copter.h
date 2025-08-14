@@ -1087,6 +1087,9 @@ private:
 #if MODE_GUIDED_NOGPS_ENABLED
     ModeGuidedNoGPS mode_guided_nogps;
 #endif
+#if MODE_AIR_TO_WATER_ENABLED
+    ModeAirToWater mode_air_to_water;
+#endif
 #if MODE_SMARTRTL_ENABLED
     ModeSmartRTL mode_smartrtl;
 #endif
